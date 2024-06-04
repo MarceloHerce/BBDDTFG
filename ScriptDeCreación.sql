@@ -23,7 +23,9 @@ CREATE TABLE IF NOT EXISTS users_media (
     media_reference VARCHAR(255) NOT NULL,
     CONSTRAINT fk_user_id FOREIGN KEY (x_user_id) REFERENCES users(user_id)
 );
-
+INSERT INTO users.access_type VALUES (0,"Google Login");
+INSERT INTO users.access_type VALUES (0,"Web login");
+INSERT INTO users.access_type VALUES (0,"Google and Web Login");
 
 
 
