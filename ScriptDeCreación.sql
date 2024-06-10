@@ -8,13 +8,10 @@ CREATE TABLE IF NOT EXISTS access_type (
 
 CREATE TABLE IF NOT EXISTS users (
     user_id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    user_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    user_name VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
     user_password VARCHAR(255) NOT NULL,
-    salt VARCHAR(255),
     x_access_type_id BIGINT NOT NULL,
-    -- f2a_enabled VARCHAR(255),
-    -- f2a_secret VARCHAR(255)
     CONSTRAINT fk_access_type FOREIGN KEY (x_access_type_id) REFERENCES access_type(access_type_id)
 )AUTO_INCREMENT = 1;
 CREATE TABLE IF NOT EXISTS users_media (
@@ -26,6 +23,7 @@ CREATE TABLE IF NOT EXISTS users_media (
 INSERT INTO users.access_type VALUES (0,"Google Login");
 INSERT INTO users.access_type VALUES (0,"Web login");
 INSERT INTO users.access_type VALUES (0,"Google and Web Login");
+
 
 
 
